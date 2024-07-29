@@ -1,0 +1,14 @@
+== Bild in Textbreite zentriert ==
+    - durch anpassen der Zahl kann das Verhältnis geändert werden
+    - in "{}" kommt der Dateiname
+\begin{center}
+    \includegraphics[width=1\textwidth]{}
+\end{center}
+
+
+== Farbige Zeile in einer Tabelle ==
+\rowcolor{} 
+
+= Farbintensität anpassen =
+durch den Zusatz von Farge!Zahl!, z.B. green!50!, kann die gewünschte Farbe in einer gewünschten Stärke angezeigt werden. 
+Es ist möglich 2 (oder mehr) Farben zu kombinieren, es ist durch Farbkombi's wie  {blue!20!yellow!80!} möglich.

@@ -1,0 +1,144 @@
+% ================================================================================================ %
+% Hilfe zum Einstieg in LaTeX
+% ================================================================================================ %
+
+% Hier sind ein paar nützliche Links um LaTeX besser lernen zu können und ein paar die es sich zu merken einfach lohnt.
+
+% Ein guter Einstieg ist die Overleaf Dokumentation, diese nimmt dich gut an die Hand.
+    % https://de.overleaf.com/learn
+
+% Eine weitere gute Quelle ist "The LaTeX Project", diese bieten einen weiteren gute Dokumentation (auch in De) um hier einen umfassenden Einstig zu finden.
+    % https://www.latex-project.org/help/documentation/
+
+% Wenn man schnell LaTeX lernen will empfehle ich die 5 Artikel von Overleaf zum Thesis schreiben
+    % https://de.overleaf.com/learn/latex/How_to_Write_a_Thesis_in_LaTeX_(Part_1)%3A_Basic_Structure
+
+% oder die 18 kurze und anschauliche Kapitel von Latex-tutorials.com oder iht Quikstart-Guide
+    % https://latex-tutorial.com/tutorials/
+    % https://latex-tutorial.com/quick-start/
+    
+% Auch sinnvoll ist es bei Problemen zu Googeln oder ne KI-Chatbox zu fragen, die meisten können mit LaTeX umgehen und geben aus meiner Erfahrung relativ Sinnvolle antworten
+
+% ======= Resourcen, die Sinnvoll sind %
+% Hyperref Anpassungen
+    % https://www.namsu.de/Extra/pakete/Hyperref.html
+% Biblatex Quide zum einstieg in die Quellen
+    % https://de.overleaf.com/learn/latex/Bibliography_management_with_biblatex
+% nutzung von Farben in LaTeX (mit xColor)
+    % https://latex-tutorial.com/color-latex/
+    
+
+
+\documentclass[             % Basiseinstellungen des Dokuments
+12pt,                           % Schriftgröße
+a4paper                         % Blattformat
+]{report}                       % Art des Textes (Report, Book, Article, ...)
+\usepackage[utf8]{inputenc} % Unicode Standart für Sonderzeichen
+\usepackage[T1]{fontenc}    % Hinzufügen von mehr Seitenumbrüchen
+\usepackage[]{fancyhdr}     % Hinzufügen von mehr Seitenstyles
+\pagestyle{fancy}           % Änderung zum "fancy" Seitenstyles
+\usepackage[ngerman]{babel} % Deutsches Sprachpaket mit neue Rechtschreibung, d.\,h. (Silbentrennung)
+\usepackage[dvipsnames, x11names ]{xcolor} % zusätzliche Farben
+\usepackage{multirow}       % Hinzufügen von Tabellen
+\usepackage{array}          % Mehr optionen bei Tabellen 
+\usepackage{graphicx}       % besseres Hinzufügen und Formatieren von Bildern 
+\usepackage[iso, german]{isodate}      % formatieren von Datum, Zeit und Zeitzonen
+\usepackage{hyperref}       % Hinzufügen von internen und externen Links
+\usepackage{lipsum}         % fügt Text hinzu (Lorem Ipsum)       
+  \usepackage[              % fügt Biblatex für vernünftige Quellen ein
+    backend=biber,              % Formatierung vom Backend der Quellendokumente
+    style=numeric,              % Definiert die Formatierung 
+  ]{biblatex}
+\usepackage{colortbl}       % Ermöglicht es Tabellen Farbig zu gestalten
+\usepackage{movie15}        % Ermöglicht das einbinden von .gif datein durch den befehl
+\usepackage{awesomebox}
+\usepackage{makecell}       % Ermöglicht linebreaks in Tabellen durch \makecell{} und Überschriften dank \thead{} 
+
+% ================================================================================================ %
+% Anpassungen & Befehle
+% ================================================================================================ %
+% Eine Anmerkung zum Vertikalen Platz
+
+
+\hypersetup{                % Einstellung von Hyperref
+% ======= Dokumentoptionen %
+pdftoolbar=true,	% Anzeigen der Acrobat toolbar oder nicht
+pdfmenubar=true,	% Anzeigen des Acrobat menu oder nicht
+pdftitle={Zusammenfassung Semester 1 Fakultät DM},	% Titel
+pdfsubject={lernen},	% Um was geht es
+pdfauthor={Nils J. Hack, },	% Autor bzw. Autoren
+pdfkeywords={Hochschule Furtwangen, Fakultät Digitale Medien, SoSe24},	% Stichwort1, Stichwort2 ...
+pdfcreator={Overleaf},	% Mit welcher Anwendung i.d.R. pdflatex
+pdfproducer={Text},	% LaTeX with hyperref
+% ======= %
+bookmarks=true,	            % erstellt Bookmarks
+bookmarksopen=true,        % Anzeigen der Bookmarks beim Öffen des Dokuments
+bookmarksnumbered=false,	% Anschnittsnummer anzeigen
+% ======= %
+    colorlinks=true,            % Farblinks an
+    linkcolor=YellowGreen,      % Farbe von internen Verweise
+    citecolor=Cerulean,         % Farbe von Zitaten
+    urlcolor=RedViolet,         % Farbe zu externen Links
+    }
+
+% ============= %
+\renewcommand{\footrulewidth}{0.4pt}    % 
+% ============= %
+\setlength\parindent{0pt}
+% ============= %
+\setcounter{secnumdepth}{5}
+% ============= %
+
+% ======= Quellenbibliotheken hinzufügen %
+\addbibresource{Quellen/Medientechnik.bib}
+
+
+% ======= Formatierungen des Seitenlayouts %
+\fancyhead[R]{\rightmark}   % Kopfzeile mit aktueller Section rechts
+\fancyhead[L]{\leftmark}    % Kopfzeile mit aktuellem Kapitel oben links
+\fancyfoot[R]{\hyperref[TOC]{\textcolor{YellowGreen}{Inhaltsverzeichnis}}}  % fügt unten rechts einen link zum Inhaltsverzeichnis hinzu
+\fancyfoot[L]{SoSe24 DM Sem1} % fügt unten links den Text hinzu
+
+
+% ================================================================================================ %
+% Dokument beginnt
+% ================================================================================================ %
+
+\begin{document}
+
+% ======= Titelseite anpassen %
+\vspace{-5cm}
+\title{\vspace{-5cm}\begin{center}
+    \includegraphics[height=100px]{Bilder/HFU_logo.png}
+\end{center}\vspace{3cm}Zusammenfassung\\ Semester 1\\ Fakultät DM}
+\author{Zusammengefasst von:\\\emph{Nils Hack \& Daniel Georg}}
+\date{Im Zeitraum:\\12. Juli 2024 - \today}
+
+% ======= Titelseite %
+\maketitle
+\setcounter{page}{2} % Setzt Seitenzahl auf 2 weil Deckblatt geskippt wird
+\newpage
+
+% ======= Ínhaltsverzeichnis %
+\hypersetup{linkcolor=black}    % Setzt die Farbe des Inhaltsverzeichnis zu schwarz, überschreibt das Seitenlayout
+\tableofcontents\label{TOC}     % fügt ein label ein um dieses zu Verlinken
+\newpage
+
+% ======= Inhalte %             % Durch das hinzufügen von einem "%" die ungewünchten Bereiche ausklammern
+\include{Vorwort}
+\include{AWBL/1_AWBL}
+\include{Medientechnik/Medientechnik}
+\include{Gestaltung/1_Mediengestaltung}
+\include{Programmieren/1_Programmieren_Eisenbiegler}
+\include{MINT/1_Mint}
+\include{Buecherliste/Bücherliste}
+% ======= Quellen %     hinzufügen vom Quellendokument
+
+\addcontentsline{toc}{chapter}{Quellen}
+\addcontentsline{toc}{section}{Weblinks}
+\printbibliography[type=online,title={Weblinks}] % nur online-artikel
+
+\addcontentsline{toc}{section}{Artikel}
+\printbibliography[type=article,title={Articles only}]
+
+\end{document}
