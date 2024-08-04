@@ -53,6 +53,8 @@ a4paper                         % Blattformat
 \usepackage{movie15}        % Ermöglicht das einbinden von .gif datein durch den befehl
 \usepackage{awesomebox}
 \usepackage{makecell}       % Ermöglicht linebreaks in Tabellen durch \makecell{} und Überschriften dank \thead{} 
+\usepackage{longtable}      % Ermöglicht das Erstellen von Listen über mehreren Seiten
+\usepackage{wrapfig}        % Ermöglicht es das Wrappen von Bildern, gut für Bild neben Text 
 
 % ================================================================================================ %
 % Anpassungen & Befehle
@@ -93,6 +95,7 @@ bookmarksnumbered=false,	% Anschnittsnummer anzeigen
 \addbibresource{Quellen/Medientechnik.bib}
 
 
+
 % ======= Formatierungen des Seitenlayouts %
 \fancyhead[R]{\rightmark}   % Kopfzeile mit aktueller Section rechts
 \fancyhead[L]{\leftmark}    % Kopfzeile mit aktuellem Kapitel oben links
@@ -125,13 +128,20 @@ bookmarksnumbered=false,	% Anschnittsnummer anzeigen
 \newpage
 
 % ======= Inhalte %             % Durch das hinzufügen von einem "%" die ungewünchten Bereiche ausklammern
-\input{Semester1}
-\include{Buecherliste/Bücherliste}
+\include{Vorwort}
+\include{AWBL/1_AWBL}
+\include{Medientechnik/Medientechnik}
+\include{Gestaltung/1_Mediengestaltung}
+\include{Programmieren/1_Programmieren_Eisenbiegler}
+\include{MINT/1_Mint}
+\input{Buecherliste/Bücherliste 3}
 % ======= Quellen %     hinzufügen vom Quellendokument
 
 \addcontentsline{toc}{chapter}{Quellen}
 \addcontentsline{toc}{section}{Weblinks}
-\printbibliography[type=online,title={Weblinks}] % nur online-artikel
+\printbibliography[type=online,title={Weblinks}]% nur online-artikel
+\printbibliography[type=book, title={Bücher}]   % nur Bücher 
+\printbibliography[type=misc, title={andere}]
 
 \addcontentsline{toc}{section}{Artikel}
 \printbibliography[type=article,title={Articles only}]
